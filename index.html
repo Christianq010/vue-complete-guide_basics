@@ -10,7 +10,10 @@
 
 	<body>
 		<div id="app">
+			<h1 v-once>{{title}}</h1>
 			<p>{{ changeTitle() }} - <a v-bind:href="link">Google</a></p>
+			<hr>
+			<p v-html="finishedLink"></p>
 		</div>
 
 	<script>
@@ -18,7 +21,8 @@
 		el: '#app',
 		data: {
 			title: 'Hello World!',
-			link: 'http://www.google.lk'
+			link: 'http://www.google.lk',
+			finishedLink: '<a href="http://google.com">Google HQ</a>'
 		},
 		methods: {
 			changeTitle: function() {
