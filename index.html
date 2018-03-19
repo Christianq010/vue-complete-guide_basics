@@ -10,14 +10,15 @@
 
 	<body>
 		<div id="app">
-			<p>{{ changeTitle() }}</p>
+			<p>{{ changeTitle() }} - <a v-bind:href="link">Google</a></p>
 		</div>
 
 	<script>
 		new Vue({
 		el: '#app',
 		data: {
-			title: 'Hello World!'
+			title: 'Hello World!',
+			link: 'http://www.google.lk'
 		},
 		methods: {
 			changeTitle: function() {
