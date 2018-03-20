@@ -29,39 +29,21 @@
 
 	<body>
 		<div id="app">
-			<div 
-				class="demo" 
-				v-bind:style="{'background-color': color}">
-			</div>
-			<div 
-				class="demo" 
-				v-bind:style="myStyles">
-			</div>
-			<div 
-				class="demo"
-				v-bind:style="[myStyles, {height: width + 'px'}]">
-
-			</div>
-			<hr>
-			<input type="text" v-model="color">
-			<input type="text" v-model="width">
+			<p v-if="show">You can See me!<span>Hello!</span></p>
+			<p v-else>Now you can see me too!</p>
+				<template v-if="show">
+					<h1>Some random heading</h1>
+					<p>Im inside a template</p>
+				</template>
+			<p>Do you also see me</p>
+			<button v-on:click="show = !show">Switch</button>
 		</div>
 
 	<script>
 		new Vue({
 		el: '#app',
 		data: {
-			attachPrimaryColor: false,
-			color: 'flat-2',
-			width: 100
-		},
-		computed: {
-			myStyles: function() {
-				return {
-					'background-color': this.color,
-					width: this.width + 'px'
-				}
-			}
+			show: true
 		}
 	});
 	</script>
