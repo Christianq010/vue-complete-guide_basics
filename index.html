@@ -10,41 +10,19 @@
 
 	<body>
 		<div id="app">
-			<h1 v-once>{{title}}</h1>
-			<button v-on:click="increase">Click Me!</button>
-			<p>{{ counter }}</p>
-			<hr>
-			<p v-on:mousemove="updateCoordinates">
-				Coordinates: {{x}} / {{y}}
-				<span v-on:mousemove.stop="">Dead Spot</span>
-			</p>
-				<input type="text" v-on:keyup.enter="alertMe">
+			<p>{{ name }}</p>
+				<input type="text" v-model="name">
 		</div>
 
 	<script>
 		new Vue({
 		el: '#app',
 		data: {
-			title: 'Hello World!',
-			link: 'http://www.google.lk',
-			finishedLink: '<a href="http://google.com">Google HQ</a>',
-			counter: 0,
-			x: 0,
-			y: 0
+			name: 'Hello World!'
 		},
 		methods: {
 			changeTitle: function() {
 				return this.title;
-			},
-			increase: function () {
-				this.counter ++;
-			},
-			updateCoordinates: function(event) {
-				this.x = event.clientX;
-				this.y = event.clientY;
-			},
-			alertMe: function () {
-				alert('Hello There!');
 			}
 		}
 	});
