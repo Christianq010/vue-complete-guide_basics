@@ -31,13 +31,16 @@
 		<div id="app">
 			<div 
 				class="demo" 
-				v-on:click="attachPrimaryColor = !attachPrimaryColor"
-				v-bind:class="{'flat-1': attachPrimaryColor}">
+				v-bind:style="{'background-color': color}">
+			</div>
+			<div 
+				class="demo" 
+				v-bind:style="myStyles">
 			</div>
 			<div class="demo"></div>
-			<div class="demo" v-bind:class="color"></div>
 			<hr>
 			<input type="text" v-model="color">
+			<input type="text" v-model="width">
 		</div>
 
 	<script>
@@ -45,7 +48,16 @@
 		el: '#app',
 		data: {
 			attachPrimaryColor: false,
-			color: 'flat-2'
+			color: 'flat-2',
+			width: 100
+		},
+		computed: {
+			myStyles: function() {
+				return {
+					'background-color': this.color,
+					width: this.width + 'px'
+				}
+			}
 		}
 	});
 	</script>
