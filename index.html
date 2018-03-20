@@ -6,35 +6,46 @@
 	<title>VueJS</title>
 	<link rel="stylesheet" href="">
 	<script src="vue.js"></script>
+	<style>
+		.demo {
+			width: 100px;
+			height: 100px;
+			background-color: #FFFCEF;
+			display: inline-block;
+			margin: 10px;
+			border: solid 1px black;
+		}
+		.flat-1 {
+			background-color: #D2EBCD;
+		}
+		.flat-2 {
+			background-color: #FF7F5B;
+		}
+		.flat-3 {
+			background-color: #393939;
+		}
+	</style>
 </head>
 
 	<body>
 		<div id="app">
-			<button v-on:click="counter++">Increase</button>
-			<button v-on:click="counter--">Decrease</button>
-			<button v-on:click="secondCounter++">Increase Second</button>
-			<p>Counter: {{counter}} | {{secondCounter}}</p>
-			<p>Result {{result()}} | {{output}}</p>
+			<div 
+				class="demo" 
+				v-on:click="attachPrimaryColor = !attachPrimaryColor"
+				v-bind:class="{'flat-1': attachPrimaryColor}">
+			</div>
+			<div class="demo"></div>
+			<div class="demo" v-bind:class="color"></div>
+			<hr>
+			<input type="text" v-model="color">
 		</div>
 
 	<script>
 		new Vue({
 		el: '#app',
 		data: {
-			counter: 0,
-			secondCounter: 0
-		},
-		computed: {
-			output: function() {
-				console.log('computed');
-				return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'; 
-			}
-		},
-		methods: {
-			result: function() {
-				console.log('method');
-				return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'; 
-			}
+			attachPrimaryColor: false,
+			color: 'flat-2'
 		}
 	});
 	</script>
